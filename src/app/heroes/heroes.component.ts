@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HEROES } from '../mock-heroes';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,13 +20,19 @@ export class HeroesComponent implements OnInit {
   
   selectedHero: Hero;
   
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+
+  goHome() {
+    this.router.navigate(['/test-material']);
   }
 
 }
